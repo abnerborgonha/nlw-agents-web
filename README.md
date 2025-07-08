@@ -1,69 +1,64 @@
-# React + TypeScript + Vite
+# NLW Agents
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este é o projeto **NLW Agents** — uma aplicação web construída com React, Vite e TypeScript, utilizando bibliotecas modernas para UI, roteamento e requisições assíncronas.
 
-Currently, two official plugins are available:
+## Bibliotecas Utilizadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React**: Biblioteca principal para construção da interface.
+- **React DOM**: Renderização do React no navegador.
+- **React Router DOM**: Roteamento SPA.
+- **@tanstack/react-query**: Gerenciamento de requisições e cache de dados.
+- **Tailwind CSS**: Utilitário CSS para estilização rápida e responsiva.
+- **tw-animate-css**: Animações utilitárias para Tailwind.
+- **@radix-ui/react-slot**: Composição de componentes acessíveis.
+- **class-variance-authority** e **clsx**: Utilitários para composição de classes CSS.
+- **lucide-react**: Ícones SVG modernos.
+- **tailwind-merge**: Mescla de classes Tailwind.
 
-## Expanding the ESLint configuration
+## Como rodar o projeto
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1. **Instale as dependências:**
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+   ```fish
+   pnpm install
+   # ou
+   npm install
+   # ou
+   yarn install
+   ```
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+2. **Inicie o servidor de desenvolvimento:**
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+   ```fish
+   pnpm dev
+   # ou
+   npm run dev
+   # ou
+   yarn dev
+   ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+3. **Acesse no navegador:**
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+   Abra [http://localhost:5173](http://localhost:5173) para ver a aplicação.
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Estrutura do Projeto
+
+- `src/` — Código-fonte principal
+  - `components/` — Componentes reutilizáveis
+  - `pages/` — Páginas da aplicação (ex: CreateRoom, Room)
+  - `lib/` — Utilitários
+  - `index.css` — Estilos globais
+  - `main.tsx` — Ponto de entrada do React
+  - `app.tsx` — Configuração de rotas e providers
+
+## Observações
+
+- O projeto utiliza Tailwind CSS. Certifique-se de que seu editor está com plugins de Tailwind para melhor DX.
+- As rotas principais são:
+  - `/` — Página de criação/listagem de salas
+  - `/room/:roomId` — Página de uma sala específica
+- O backend deve estar rodando em `http://localhost:3333` para que as requisições funcionem.
+
+---
+
+Projeto desenvolvido durante o NLW da Rocketseat.
